@@ -20,9 +20,9 @@ $S_type=$_POST['Stype'];
 echo "post ";
 }
 
-$que = "insert into land (latitude, longitude, landarea, crop, soil_type) values ('$lat', '$long', '$ldarea', '$crop', '$S_type')"; 
+$que = "insert into land (fid, latitude, longitude, landarea, crop, soil_type) values (1, '$lat', '$long', '$ldarea', '$crop', '$S_type')"; 
 
-mysqli_query($conn,$que);
+mysqli_query($conn, $que);
 CloseCon($conn);
 ?>
 </body>

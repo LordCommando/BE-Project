@@ -43,9 +43,10 @@ function showPosition(position) {
    $email=$_POST['email'];
    $photo=$_POST['photo'];
   
-   $que = "INSERT INTO farmer (fname, lname, city, taluka, district, state, pincode, mobile, landline, email, photo) VALUES ('$fname', '$lname', '$city', '$taluka', '$district', '$state', '$pincode', '$mobile', '$landline', '$email', '$photo')"; 
+   $que = "insert into farmer (fname, lname, city, taluka, district, state, pincode, mobile, landline, email, photo) values ('$fname', '$lname', '$city', '$taluka', '$district', '$state', '$pincode', '$mobile', '$landline', '$email', '$photo')"; 
 
    mysqli_query($conn,$que);
+  }
    
   ?>
 	<form method="post" action="home.php">
