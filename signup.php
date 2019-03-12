@@ -4,7 +4,7 @@
 <body>
 <table>
 	
-	<form method="post" action="signup2.php">
+	<form method="post" action="signup21.php">
   
  <tr> <input type="text" name="firstname" placeholder="First Name" required><br><br>
  

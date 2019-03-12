@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <script>
@@ -23,7 +23,7 @@ function showPosition(position) {
 <body>
 <table>
 
-	<? php
+	<?php
 
 	 include "database_conn.php";
    $conn=OpenCon();
@@ -64,4 +64,5 @@ function showPosition(position) {
   
 </form> 
 </table>
-</body></html>
+</body>
+</html>
