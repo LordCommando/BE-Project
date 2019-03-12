@@ -51,9 +51,9 @@ function showPosition(position) {
   ?>
 	<form method="post" action="home.php">
   
- <tr> <input type="hidden" name="lat" placeholder="" required><br><br></tr>
+ <tr> <input type="number" name="lat" placeholder="Latitude" required><br><br></tr>
  
-  <input type="hidden" name="long" placeholder="" required><br><br>
+  <input type="number" name="long" placeholder="Longitude" required><br><br>
  
   <input type="text" name="ldarea" placeholder="Land Area" required><br><br>
   
