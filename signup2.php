@@ -1,29 +1,26 @@
 <!doctype html>
 <html>
-<head>
-  <script>
-var x = document.getElementById("demo");
-if(confirm("We need ur location"))
+<head><script>
+
+function getLocation() 
 {
-function getLocation() {
-  if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-  x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+  navigator.geolocation.getCurrentPosition(showPos);
 }
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude; 
+function showPos(position)
+{
+  var lat = position.coords.latitude;
+  var long = position.coords.longitude;
+  document.getElementById("lati").value=lat;
+  document.getElementById("longi").value=long;
+
 }
-}
-</script>
-</head>
-<body>
+
+</script></head>
+<body onload="getLocation()">
 <table>
 
-	<? php
+	<?php
 
 	 include "database_conn.php";
    $conn=OpenCon();
@@ -43,16 +40,16 @@ function showPosition(position) {
    $email=$_POST['email'];
    $photo=$_POST['photo'];
   
-   $que = "INSERT INTO farmer (fname, lname, city, taluka, district, state, pincode, mobile, landline, email, photo) VALUES ('$fname', '$lname', '$city', '$taluka', '$district', '$state', '$pincode', '$mobile', '$landline', '$email', '$photo')"; 
+   $que = "insert into farmer (fname, lname, city, taluka, district, state, pincode, mobile, landline, email, photo) values ('$fname', '$lname', '$city', '$taluka', '$district', '$state', '$pincode', '$mobile', '$landline', '$email', '$photo')"; 
 
    mysqli_query($conn,$que);
-   
+   }
   ?>
 	<form method="post" action="home.php">
   
- <tr> <input type="hidden" name="lat" placeholder="" required><br><br></tr>
+ <tr> <input id="lati" type="text" name="lat" readonly="readonly" required><br><br></tr>
  
-  <input type="hidden" name="long" placeholder="" required><br><br>
+  <input id="longi" type="text" name="long" readonly="readonly" required><br><br>
  
   <input type="text" name="ldarea" placeholder="Land Area" required><br><br>
   
