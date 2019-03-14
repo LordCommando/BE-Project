@@ -1,26 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <script>
-var x = document.getElementById("demo");
-if(confirm("We need ur location"))
+<head><script>
+
+function getLocation() 
 {
-function getLocation() {
-  if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-  x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+  navigator.geolocation.getCurrentPosition(showPos);
 }
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude; 
+function showPos(position)
+{
+  var lat = position.coords.latitude;
+  var long = position.coords.longitude;
+  document.getElementById("lati").value=lat;
+  document.getElementById("longi").value=long;
+
 }
-}
-</script>
-</head>
-<body>
+
+</script></head>
+<body onload="getLocation()">
 <table>
 
 	<?php
@@ -46,14 +43,13 @@ function showPosition(position) {
    $que = "insert into farmer (fname, lname, city, taluka, district, state, pincode, mobile, landline, email, photo) values ('$fname', '$lname', '$city', '$taluka', '$district', '$state', '$pincode', '$mobile', '$landline', '$email', '$photo')"; 
 
    mysqli_query($conn,$que);
-  }
-   
+   }
   ?>
 	<form method="post" action="home.php">
   
- <tr> <input type="number" name="lat" placeholder="Latitude" required><br><br></tr>
+ <tr> <input id="lati" type="text" name="lat" readonly="readonly" required><br><br></tr>
  
-  <input type="number" name="long" placeholder="Longitude" required><br><br>
+  <input id="longi" type="text" name="long" readonly="readonly" required><br><br>
  
   <input type="text" name="ldarea" placeholder="Land Area" required><br><br>
   
@@ -65,5 +61,4 @@ function showPosition(position) {
   
 </form> 
 </table>
-</body>
-</html>
+</body></html>
