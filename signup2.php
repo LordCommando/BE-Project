@@ -39,8 +39,16 @@ function showPos(position)
    $landline=$_POST['landline'];
    $email=$_POST['email'];
    $photo=$_POST['photo'];
+
+    $result= Mysqli_Query($conn, "Select (max(fid)+1 ) from farmer");
+    $row= mysqli_fetch_row($result);
+        if($row[0] !=NULL) {
+          $no = $row[0];
+        } else {
+          $no = 1;
+        }
   
-   $que = "insert into farmer (fname, lname, city, taluka, district, state, pincode, mobile, landline, email, photo) values ('$fname', '$lname', '$city', '$taluka', '$district', '$state', '$pincode', '$mobile', '$landline', '$email', '$photo')"; 
+   $que = "insert into farmer values ($no, '$fname', '$lname', '$city', '$taluka', '$district', '$state', '$pincode', '$mobile', '$landline', '$email', '$photo')"; 
 
    mysqli_query($conn,$que);
    }

@@ -20,7 +20,14 @@ if(!empty($_POST))
   echo "post<br> ";
 }
 
-$que = "insert into land (latitude, longitude, landarea, crop, soil_type) values ('$lat', '$long', '$ldarea', '$crop', '$S_type')"; 
+$result= Mysqli_Query($conn, "Select (max(fid) ) from farmer");
+$row= mysqli_fetch_row($result);
+    if($row[0] !=NULL) {
+      $no = $row[0];
+    } else {
+      $no = 1;
+    }
+$que = "insert into land values ($no, '$lat', '$long', '$ldarea', '$crop', '$S_type')"; 
 echo "inserted";
 mysqli_query($conn,$que);
 CloseCon($conn);
