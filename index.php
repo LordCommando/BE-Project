@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <form action=signup.php>
+    <form action="signup.php">
         <input type="submit" value="Signup">
     </form>
 </body>
